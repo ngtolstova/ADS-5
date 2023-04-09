@@ -11,12 +11,12 @@ int eval(std::string post);
 const int size = 100;
 TStack <unsigned char, size> ts;
 TStack <int, size> val;
-std::string Func1(unsigned char c, int* j, std::string output);
+std::string Func1(unsigned char c, std::string output);
 std::string infx2pstfx(std::string inpt) {
   std::size_t len = inpt.length();
 	std::string output, buf;
 	unsigned char c , tp = '\0';
-	for (int i = 0; i < len; i++)	{
+	for (int i = 0; i < len; i++) {
 		c = inpt[i];
 		try {
 			switch (c) {
@@ -33,8 +33,8 @@ std::string infx2pstfx(std::string inpt) {
 						std::cout << tp << " ";
 					}	else {
             break;
-          } 
-				}
+          }
+        }
 				break;
 			case '+':
 				buf = "";
