@@ -27,8 +27,7 @@ std::string infx2pstfx(std::string inpt) {std::size_t len = inpt.length();
           if (tp!= '(') {
             output[j] = tp;
             j++;
-          }
-          else
+          } else
             break;
         }
         break;
@@ -107,8 +106,7 @@ int eval(std::string post) {
     if (c >= '0' && c <= '9') {
       z = atoi(&c);
       val.push(z);
-    }
-    else {
+    } else {
       int second = val.pop();
       int first = val.pop();
       z = Execute(c, first, second);
@@ -118,7 +116,7 @@ int eval(std::string post) {
   return val.pop();
 }
 int Execute(char oper, int first, int second) {
-	switch (oper) {
+  switch (oper) {
     case'+':
       return first + second;
     case'-':
