@@ -5,8 +5,8 @@
 #include "tstack.h"
 
 int Priority(char c);
-int Execute(char oper, int second, int first);
-std::string infx2pstfx(std::string input);
+int Execute(char oper, int first, int second);
+std::string infx2pstfx(std::string inpt);
 int eval(std::string post);
 const int size = 100;
 TStack <unsigned char, size> ts;
@@ -20,7 +20,7 @@ std::string infx2pstfx(std::string inpt) {
   for (int i = 0; i < len; i++) {
     c = inpt[i];
     try {
-	    switch (c) {
+      switch (c) {
         case '(':
           ts.push(c);
           break;
@@ -55,12 +55,11 @@ std::string infx2pstfx(std::string inpt) {
           }
       }
     }
-    catch (std::string e)
-    {
+    catch (std::string e) {
       std::cout << e << std::endl;
     }
   }
-	tp = '\0';
+  tp = '\0';
   while (ts.GetTop() >= 0) {
     tp = ts.pop();
     if (tp != '(') {
