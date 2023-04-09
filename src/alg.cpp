@@ -13,44 +13,42 @@ std::string Func1(unsigned char c, int* j, std::string output);
 std::string infx2pstfx(std::string inpt) {
   std::size_t len = inpt.length();
   static std::string output(len, '\0');
-	unsigned char c , tp = '\0';
-	int j = 0;
-	for (int i = 0; i < len; i++) {
-		c = inpt[i];
-		try {
-			switch (c) {
-			case '(':
-				ts.push(c);
-				break;
-			case ')':
-				tp = '\0';
-				while (tp != '(') {
-					tp = ts.pop();
-					if (tp!= '(') {
-						output[j] = tp;
-						j++;
-					}
-					else 
-            break;
-				}
-				break;
-			case '+':
-				output = Func1(c, &j, output);
-				break;
-			case '-':
-				output = Func1(c, &j, output);
-				break;
-			case '*':
-				output = Func1(c, &j, output);
-				break;
-			case '/':
-				output = Func1(c, &j, output);
-				break;
-			default:
-				if (c >= '0' && c <= '9') {
-					output[j] = c;
-					j++;
-				}
+  unsigned char c, tp = '\0';
+  int j = 0;
+  for (int i = 0; i < len; i++) {
+    c = inpt[i];
+    switch (c) {
+    case '(':
+	    ts.push(c);
+	    break;
+    case ')':
+	    tp = '\0';
+	    while (tp != '(') {
+	      tp = ts.pop();
+	      if (tp!= '(') {
+	        output[j] = tp;
+	        j++;
+	      }
+	      else
+          break;
+	    }
+	    break;
+    case '+':
+	    output = Func1(c, &j, output);
+			break;
+		case '-':
+			output = Func1(c, &j, output);
+			break;
+		case '*':
+			output = Func1(c, &j, output);
+			break;
+		case '/':
+			output = Func1(c, &j, output);
+			break;
+		default:
+			if (c >= '0' && c <= '9') {
+				output[j] = c;
+				j++;
 			}
 		}
 	}
@@ -104,8 +102,9 @@ int eval(std::string post) {
 	char c;
 	for (int i = 0; i < len; i++) {
 		c = post[i];
-		if (c == '\0') 
+		if (c == '\0') {
       break;
+    }
 		if (c >= '0' && c <= '9') {
 			z = atoi(&c);
 			val.push(z);
@@ -121,13 +120,13 @@ int eval(std::string post) {
 }
 int Execute(char oper, int first, int second) {
 	switch (oper) {
-	case'+': 
+	case'+':
       return first + second;
-	case'-': 
+	case'-':
       return first - second;
-	case'*': 
+	case'*':
       return first * second;
-	case'/': 
+	case'/':
       return first / second;
 	}
 }
