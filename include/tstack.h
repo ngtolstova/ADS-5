@@ -6,7 +6,7 @@ template<typename T, int size>
 class TStack {
 private:
   T arr[size] = {0};
-	int top = 0;
+  int top = 0;
 public:
 	TStack(): top(-1) {}
 	void push(T& value) {
@@ -30,12 +30,10 @@ public:
 	bool isFull() const {
 		return top == size - 1;
 	}
-	const T& GetArr(int i)
-	{
+	const T& GetArr(int i) {
 		return arr[i];
 	}
-	 int GetTop()
-	{
+	 int GetTop() {
 		return top;
 	}
 };
