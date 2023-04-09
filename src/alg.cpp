@@ -10,9 +10,9 @@ const int size = 100;
 TStack <unsigned char, size> ts;
 TStack <int, size> val;
 std::string Func1(unsigned char c, int* j, std::string output);
-std::string infx2pstfx(std::string inf) {
+std::string infx2pstfx(std::string inpt) {
   std::size_t len = inpt.length();
-	static std::string output(len, '\0');
+  static std::string output(len, '\0');
 	unsigned char c , tp = '\0';
 	int j = 0;
 	for (int i = 0; i < len; i++) {
@@ -28,7 +28,6 @@ std::string infx2pstfx(std::string inf) {
 					tp = ts.pop();
 					if (tp!= '(') {
 						output[j] = tp;
-						std::cout << output[j] << " ";
 						j++;
 					}
 					else 
@@ -50,13 +49,9 @@ std::string infx2pstfx(std::string inf) {
 			default:
 				if (c >= '0' && c <= '9') {
 					output[j] = c;
-					std::cout << output[j] << " ";
 					j++;
 				}
 			}
-		}
-		catch (std::string e) {
-			std::cout << e << std::endl;
 		}
 	}
 	tp = '\0';
@@ -64,7 +59,6 @@ std::string infx2pstfx(std::string inf) {
 		tp = ts.pop();
 		if (tp != '(') {
 			output[j] = tp;
-			std::cout << output[j] << " ";
 			j++;
 		}
 	}
@@ -76,7 +70,6 @@ std::string Func1(unsigned char c, int* j, std::string outp) {
 		temp = ts.get();
 		while (ts.GetTop() >= 0 && (Priority(temp) >= Priority(c))) {
 			outp[*j] = ts.pop();
-			std::cout << outp[*j]<< ' ';
 			(*j)++;
 		}
 	}
@@ -104,7 +97,7 @@ int Priority(char c) {
 	}
 	return pr;
 }
-int eval(std::string pref) {
+int eval(std::string post) {
   std::size_t len = post.length();
 	int count = 0, z;
 	std::string N;
