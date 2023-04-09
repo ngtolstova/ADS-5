@@ -25,7 +25,7 @@ std::string infx2pstfx(std::string inpt) {
           break;
         case ')':
           tp = '\0';
-          while (tp != '(')	{
+          while (tp != '(') {
             tp = ts.pop();
             if (tp != '(') {
               output += tp;
@@ -60,7 +60,7 @@ std::string infx2pstfx(std::string inpt) {
           }
       }
     }
-    catch (std::string e)	{
+    catch (std::string e) {
       std::cout << e << std::endl;
     }
   }
@@ -69,12 +69,11 @@ std::string infx2pstfx(std::string inpt) {
     tp = ts.pop();
     if (tp != '(') {
       output += tp;
-      output += " ";
+      if (!ts.isEmpty())
+        output += " ";
       std::cout << tp << " ";
     }
   }
-  len = output.length();
-  output[len - 1] = '\0';
   return output;
 }
 std::string Func1(unsigned char c, std::string outp) {
