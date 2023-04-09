@@ -31,7 +31,7 @@ std::string infx2pstfx(std::string inpt) {
               output += tp;
               output += " ";
               std::cout << tp << " ";
-            }	else {
+            } else {
               break;
             }
           }
