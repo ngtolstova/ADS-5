@@ -14,7 +14,7 @@ TStack <int, size> val;
 std::string Func1(unsigned char c, int* j, std::string output);
 std::string infx2pstfx(std::string inpt) {
   std::size_t len = inpt.length();
-  static std::string output(len, '\0');
+  std::string output(len, '\0');
   unsigned char c , tp = '\0';
   int j = 0;
   for (int i = 0; i < len; i++) {
@@ -105,7 +105,6 @@ int Priority(char c) {
 int eval(std::string post) {
   std::size_t len = post.length();
   int count = 0, z;
-  std::string N;
   char c;
   for (int i = 0; i < len; i++) {
     c = post[i];
