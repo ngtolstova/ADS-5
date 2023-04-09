@@ -2,6 +2,7 @@
 #include <string>
 #include <map>
 #include "tstack.h"
+
 int Priority(char c);
 int Execute(char oper, int second, int first);
 std::string infx2pstfx(std::string input);
@@ -27,8 +28,9 @@ std::string infx2pstfx(std::string inpt) {std::size_t len = inpt.length();
           if (tp!= '(') {
             output[j] = tp;
             j++;
-          } else
-            break;
+          } else {
+              break;
+          }
         }
         break;
       case '+':
